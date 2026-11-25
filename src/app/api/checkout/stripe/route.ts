@@ -31,6 +31,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Your cart is empty." }, { status: 400 });
     }
 
+    const { useSessionStore, isClientDemo } = await import("@/lib/config");
+    if (isClientDemo() || useSessionStore()) {
+      return NextResponse.json(
+        { error: "Online payments are off in the client demo. Use cash on delivery." },
+        { status: 503 },
+      );
+    }
+
     if (!process.env.STRIPE_SECRET_KEY?.trim()) {
       return NextResponse.json(
         {

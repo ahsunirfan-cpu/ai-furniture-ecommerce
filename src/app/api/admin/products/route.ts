@@ -1,12 +1,18 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/auth/session";
+import { useSessionStore } from "@/lib/config";
+import { loadDemoProducts } from "@/lib/demo/catalog";
 import { sql, sqlOne } from "@/lib/db";
 import { slugify } from "@/lib/format";
 
 export async function GET() {
   try {
     await requireAdmin();
+    if (useSessionStore()) {
+      const products = await loadDemoProducts();
+      return NextResponse.json({ products, demoReadOnly: true });
+    }
     const products = await sql("select * from products order by created_at desc");
     return NextResponse.json({ products });
   } catch (e) {
@@ -35,6 +41,9 @@ const productSchema = z.object({
 export async function POST(request: Request) {
   try {
     await requireAdmin();
+    if (useSessionStore()) {
+      return NextResponse.json({ error: "Catalogue is read-only in client demo mode." }, { status: 403 });
+    }
     const body = productSchema.safeParse(await request.json());
     if (!body.success) {
       return NextResponse.json({ error: "Invalid product." }, { status: 400 });

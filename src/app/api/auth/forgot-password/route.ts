@@ -1,7 +1,6 @@
-import { createHash, randomBytes } from "node:crypto";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { sqlOne, sql } from "@/lib/db";
+import { isClientDemo } from "@/lib/config";
 
 const schema = z.object({ email: z.string().email() });
 
@@ -11,26 +10,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid email." }, { status: 400 });
   }
 
-  const user = await sqlOne<{ id: string }>("select id from users where email = $1", [
-    body.data.email.toLowerCase(),
-  ]);
-
-  let resetToken: string | undefined;
-  if (user) {
-    const token = randomBytes(32).toString("hex");
-    const token_hash = createHash("sha256").update(token).digest("hex");
-    await sql(
-      `insert into password_reset_tokens (user_id, token_hash, expires_at)
-       values ($1, $2, now() + interval '1 hour')`,
-      [user.id, token_hash],
-    );
-    resetToken = token;
+  if (isClientDemo()) {
+    return NextResponse.json({
+      ok: true,
+      message:
+        "Password reset is disabled in the client demo. Use the demo accounts listed in the README.",
+    });
   }
 
+  // Production: integrate email provider; never return reset tokens in API responses.
   return NextResponse.json({
     ok: true,
-    message:
-      "If an account exists for this email, a reset link has been sent. In this demo, use the token below.",
-    demoResetToken: resetToken,
+    message: "If an account exists for this email, we'll send reset instructions shortly.",
   });
 }

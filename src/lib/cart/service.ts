@@ -1,9 +1,14 @@
 import "server-only";
 
 import { sql, sqlOne } from "@/lib/db";
-import type { Product } from "@/lib/types";
-
-import type { CartLine } from "@/lib/types";
+import { useSessionStore } from "@/lib/config";
+import {
+  demoAddToCart,
+  demoCartLines,
+  demoUpdateCartQuantity,
+} from "@/lib/demo/session-store";
+import type { SessionUser } from "@/lib/auth/session";
+import type { Product, CartLine } from "@/lib/types";
 
 export type { CartLine };
 
@@ -20,7 +25,8 @@ async function ensureCart(userId: string): Promise<string> {
   return created!.id;
 }
 
-export async function getCartLines(userId: string): Promise<CartLine[]> {
+export async function getCartLines(userId: string, user?: SessionUser): Promise<CartLine[]> {
+  if (useSessionStore() && user) return demoCartLines(user);
   const cartId = await ensureCart(userId);
   return sql<CartLine>(
     `select ci.id, ci.product_id, ci.quantity, p.name, p.slug, p.price_cents,
@@ -32,7 +38,16 @@ export async function getCartLines(userId: string): Promise<CartLine[]> {
   );
 }
 
-export async function addToCart(userId: string, productId: string, quantity = 1) {
+export async function addToCart(
+  userId: string,
+  productId: string,
+  quantity = 1,
+  user?: SessionUser,
+) {
+  if (useSessionStore() && user) {
+    await demoAddToCart(user, productId, quantity);
+    return;
+  }
   const cartId = await ensureCart(userId);
   const product = await sqlOne<Product>("select stock from products where id = $1", [productId]);
   if (!product || product.stock < 1) throw new Error("Out of stock");
@@ -46,7 +61,16 @@ export async function addToCart(userId: string, productId: string, quantity = 1)
   );
 }
 
-export async function updateCartQuantity(userId: string, itemId: string, quantity: number) {
+export async function updateCartQuantity(
+  userId: string,
+  itemId: string,
+  quantity: number,
+  user?: SessionUser,
+) {
+  if (useSessionStore() && user) {
+    await demoUpdateCartQuantity(user, itemId, quantity);
+    return;
+  }
   const cartId = await ensureCart(userId);
   if (quantity < 1) {
     await sql("delete from cart_items where id = $1 and cart_id = $2", [itemId, cartId]);

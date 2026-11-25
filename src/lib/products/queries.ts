@@ -1,6 +1,12 @@
 import "server-only";
 
 import { sql, sqlOne } from "@/lib/db";
+import { useSessionStore } from "@/lib/config";
+import {
+  filterDemoProducts,
+  getDemoProductById,
+  getDemoProductBySlug,
+} from "@/lib/demo/catalog";
 import type { Product, ProductCategory } from "@/lib/types";
 
 export type ProductQuery = {
@@ -25,6 +31,10 @@ function parseProduct(row: Product): Product {
 }
 
 export async function listProducts(query: ProductQuery): Promise<Product[]> {
+  if (useSessionStore()) {
+    return filterDemoProducts(query);
+  }
+
   const conditions: string[] = ["stock >= 0"];
   const params: unknown[] = [];
   let i = 1;
@@ -83,11 +93,13 @@ export async function listProducts(query: ProductQuery): Promise<Product[]> {
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
+  if (useSessionStore()) return getDemoProductBySlug(slug);
   const row = await sqlOne<Product>("select * from products where slug = $1", [slug]);
   return row ? parseProduct(row) : null;
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
+  if (useSessionStore()) return getDemoProductById(id);
   const row = await sqlOne<Product>("select * from products where id = $1", [id]);
   return row ? parseProduct(row) : null;
 }

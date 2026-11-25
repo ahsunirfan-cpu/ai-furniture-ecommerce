@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 export default async function OrdersPage() {
   const user = await getCurrentUser();
   if (!user) redirect("/login?next=/orders");
-  const orders = await listOrdersForUser(user.id);
+  const orders = await listOrdersForUser(user.id, user);
 
   return (
     <div className="space-y-4">

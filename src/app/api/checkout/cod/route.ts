@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     if (!body.success) {
       return NextResponse.json({ error: "Invalid address." }, { status: 400 });
     }
-    const result = await createOrderFromCart(user.id, "COD", body.data.address);
+    const result = await createOrderFromCart(user.id, "COD", body.data.address, user);
     return NextResponse.json({
       orderId: result.orderId,
       message: "Order placed. Pay cash on delivery when your furniture arrives.",

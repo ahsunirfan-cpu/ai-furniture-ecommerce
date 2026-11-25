@@ -6,14 +6,13 @@ import { mockRoomAnalysis } from "./mock";
 import { roomAnalysisSchema, type RoomAnalysisParsed } from "./schemas";
 import type { RoomType } from "@/lib/types";
 
-const useMock = () =>
-  process.env.AI_MOCK === "true" || !process.env.OPENAI_API_KEY?.trim();
+import { useMockAi } from "@/lib/config";
 
 export async function analyzeRoomImage(
   imagePath: string,
   roomType: RoomType,
 ): Promise<RoomAnalysisParsed> {
-  if (useMock()) {
+  if (useMockAi()) {
     return mockRoomAnalysis(roomType);
   }
 

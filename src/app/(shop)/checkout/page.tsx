@@ -8,7 +8,7 @@ const DELIVERY_CENTS = 1500;
 export default async function CheckoutPage() {
   const user = await getCurrentUser();
   if (!user) redirect("/login?next=/checkout");
-  const lines = await getCartLines(user.id);
+  const lines = await getCartLines(user.id, user);
   if (lines.length === 0) redirect("/cart");
   const subtotal = lines.reduce((s, l) => s + l.price_cents * l.quantity, 0);
 

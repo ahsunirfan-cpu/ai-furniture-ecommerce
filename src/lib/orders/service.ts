@@ -1,6 +1,9 @@
 import "server-only";
 
 import { sql, sqlOne } from "@/lib/db";
+import { useSessionStore } from "@/lib/config";
+import { demoGetOrder, demoListOrders, demoPlaceOrder } from "@/lib/demo/session-store";
+import type { SessionUser } from "@/lib/auth/session";
 import { clearCart, getCartLines } from "@/lib/cart/service";
 
 const DELIVERY_CENTS = 1500;
@@ -18,8 +21,19 @@ export async function createOrderFromCart(
   userId: string,
   paymentMethod: "STRIPE" | "COD",
   address: DeliveryAddress,
+  user?: SessionUser,
 ) {
-  const lines = await getCartLines(userId);
+  if (useSessionStore() && user) {
+    const order = await demoPlaceOrder(user, paymentMethod, address as Record<string, string>);
+    return {
+      orderId: order.id,
+      subtotal: order.subtotal_cents,
+      total: order.total_cents,
+      delivery: order.delivery_cents,
+    };
+  }
+
+  const lines = await getCartLines(userId, user);
   if (lines.length === 0) throw new Error("Cart is empty");
 
   const subtotal = lines.reduce((sum, l) => sum + l.price_cents * l.quantity, 0);
@@ -57,7 +71,10 @@ export async function createOrderFromCart(
   return { orderId: order!.id, subtotal, total, delivery: DELIVERY_CENTS };
 }
 
-export async function listOrdersForUser(userId: string) {
+export async function listOrdersForUser(userId: string, user?: SessionUser) {
+  if (useSessionStore() && user) {
+    return demoListOrders(user);
+  }
   return sql(
     `select id, status, payment_method, payment_status, total_cents, created_at
      from orders where user_id = $1 order by created_at desc`,
@@ -65,7 +82,10 @@ export async function listOrdersForUser(userId: string) {
   );
 }
 
-export async function getOrderForUser(userId: string, orderId: string) {
+export async function getOrderForUser(userId: string, orderId: string, user?: SessionUser) {
+  if (useSessionStore() && user) {
+    return demoGetOrder(user!, orderId);
+  }
   const order = await sqlOne(
     `select * from orders where id = $1 and user_id = $2`,
     [orderId, userId],

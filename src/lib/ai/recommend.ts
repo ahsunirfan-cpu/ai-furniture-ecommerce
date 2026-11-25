@@ -1,6 +1,8 @@
 import "server-only";
 
 import { sql } from "@/lib/db";
+import { useSessionStore } from "@/lib/config";
+import { getDemoProductsByCategory } from "@/lib/demo/catalog";
 import type { Product, ProductCategory, RoomAnalysisResult, RoomType } from "@/lib/types";
 import { ROOM_CATEGORY_MAP } from "@/lib/types";
 
@@ -50,13 +52,15 @@ export async function recommendProducts(
     ? [filters.category]
     : ROOM_CATEGORY_MAP[roomType];
 
-  const products = await sql<Product>(
-    `select * from products
-     where stock > 0
-     and category::text = any($1::text[])
-     order by popularity desc`,
-    [allowed],
-  );
+  const products = useSessionStore()
+    ? await getDemoProductsByCategory(allowed)
+  : await sql<Product>(
+      `select * from products
+       where stock > 0
+       and category::text = any($1::text[])
+       order by popularity desc`,
+      [allowed],
+    );
 
   const filtered = products.filter((p) => {
     if (filters.minPriceCents != null && p.price_cents < filters.minPriceCents) return false;

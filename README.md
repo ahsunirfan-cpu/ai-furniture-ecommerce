@@ -13,11 +13,24 @@ Online furniture store where customers upload a room photo, receive **catalogue-
 - Admin dashboard: products, stock, orders, customers, basic analytics
 - Phase 2 stubs: `src/lib/ai/visualization.ts`, `src/lib/ai/design-assistant.ts`
 
-## Local development
+## Client demo (Vercel)
+
+Set `CLIENT_DEMO=true` and `AI_MOCK=true`, plus a generated `AUTH_SECRET` (see [docs/CLIENT_DEMO_AND_COSTS.md](docs/CLIENT_DEMO_AND_COSTS.md)). Catalogue lives in [`data/products.json`](data/products.json); cart and orders stay in the session (no Postgres required).
+
+Demo shoppers: `client@demo.com` / `demo123` · Admin: `admin@roomcraft.local` / `admin123`
+
+## Local development (full stack)
 
 ```bash
 npm install
-env -u DATABASE_URL AI_MOCK=true npm run dev -- -p 3456
+env -u DATABASE_URL AI_MOCK=true npm run dev
+```
+
+## Local development (match Vercel demo)
+
+```bash
+npm install
+CLIENT_DEMO=true AI_MOCK=true npm run dev
 ```
 
 Without `DATABASE_URL`, the app uses in-memory **PGlite** and runs SQL from `migrations/`, then seeds sample products and an admin user:

@@ -1,8 +1,11 @@
 import "server-only";
 
 import { sql } from "@/lib/db";
+import { useSessionStore } from "@/lib/config";
+import { demoToggleWishlist, demoWishlistProducts } from "@/lib/demo/session-store";
 
 export async function toggleWishlist(userId: string, productId: string): Promise<boolean> {
+  if (useSessionStore()) return demoToggleWishlist(productId);
   const existing = await sql<{ id: string }>(
     "select id from wishlist_items where user_id = $1 and product_id = $2",
     [userId, productId],
@@ -22,6 +25,7 @@ export async function toggleWishlist(userId: string, productId: string): Promise
 }
 
 export async function listWishlist(userId: string) {
+  if (useSessionStore()) return demoWishlistProducts();
   return sql(
     `select p.* from wishlist_items w
      join products p on p.id = w.product_id

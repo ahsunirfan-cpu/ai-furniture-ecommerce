@@ -27,6 +27,7 @@ export function RoomUpload() {
   const [loading, setLoading] = useState(false);
   const [analysisId, setAnalysisId] = useState<string | null>(null);
   const [analysis, setAnalysis] = useState<RoomAnalysisResult | null>(null);
+  const [analysisRoomType, setAnalysisRoomType] = useState<RoomType | null>(null);
   const [recommendations, setRecommendations] = useState<ScoredProduct[]>([]);
   const [filters, setFilters] = useState({
     category: "",
@@ -53,6 +54,7 @@ export function RoomUpload() {
       if (!res.ok) throw new Error(data.error ?? "Analysis failed");
       setAnalysisId(data.analysisId);
       setAnalysis(data.analysis);
+      setAnalysisRoomType(roomType);
       setRecommendations(data.recommendations);
       setPreview(data.imagePath);
       if (data.lowConfidence) {
@@ -78,6 +80,8 @@ export function RoomUpload() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           analysisId,
+          roomType: analysisRoomType ?? roomType,
+          analysis,
           category: filters.category || undefined,
           minPriceCents: filters.minPrice ? Number(filters.minPrice) * 100 : undefined,
           maxPriceCents: filters.maxPrice ? Number(filters.maxPrice) * 100 : undefined,

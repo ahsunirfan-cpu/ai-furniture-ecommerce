@@ -15,7 +15,7 @@ export default async function OrderDetailPage({
   if (!user) redirect("/login");
   const { id } = await params;
   const sp = await searchParams;
-  const data = await getOrderForUser(user.id, id);
+  const data = await getOrderForUser(user.id, id, user);
   if (!data) notFound();
 
   const { order, items } = data;
@@ -39,8 +39,8 @@ export default async function OrderDetailPage({
         <Badge variant="secondary">{String(order.payment_status)}</Badge>
       </div>
       <ul className="divide-y rounded-xl border bg-white">
-        {items.map((item) => (
-          <li key={item.id as string} className="flex justify-between p-4 text-sm">
+        {items.map((item, i) => (
+          <li key={String((item as { id?: string }).id ?? i)} className="flex justify-between p-4 text-sm">
             <span>
               {String(item.product_name)} × {Number(item.quantity)}
             </span>

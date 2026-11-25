@@ -6,7 +6,7 @@ import { CartClient } from "@/components/cart-client";
 export default async function CartPage() {
   const user = await getCurrentUser();
   if (!user) redirect("/login?next=/cart");
-  const lines = await getCartLines(user.id);
+  const lines = await getCartLines(user.id, user);
   return (
     <div className="space-y-4">
       <h1 className="text-3xl font-semibold">Your cart</h1>

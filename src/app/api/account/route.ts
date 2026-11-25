@@ -1,11 +1,16 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireUser } from "@/lib/auth/session";
+import { requireUser, getSession } from "@/lib/auth/session";
+import { useSessionStore } from "@/lib/config";
+import { addDemoAddress, getDemoAddresses, updateDemoUserName } from "@/lib/demo/users";
 import { sql, sqlOne } from "@/lib/db";
 
 export async function GET() {
   try {
     const user = await requireUser();
+    if (useSessionStore()) {
+      return NextResponse.json({ user, addresses: getDemoAddresses(user.id) });
+    }
     const addresses = await sql(
       "select * from addresses where user_id = $1 order by is_default desc, created_at asc",
       [user.id],
@@ -24,6 +29,13 @@ export async function PATCH(request: Request) {
     const body = profileSchema.safeParse(await request.json());
     if (!body.success) {
       return NextResponse.json({ error: "Invalid name." }, { status: 400 });
+    }
+    if (useSessionStore()) {
+      updateDemoUserName(user.id, body.data.name);
+      const session = await getSession();
+      if (session.user) session.user.name = body.data.name;
+      await session.save();
+      return NextResponse.json({ ok: true });
     }
     await sqlOne(
       "update users set name = $1 where id = $2 returning id",
@@ -51,6 +63,18 @@ export async function POST(request: Request) {
     const body = addressSchema.safeParse(await request.json());
     if (!body.success) {
       return NextResponse.json({ error: "Invalid address." }, { status: 400 });
+    }
+    if (useSessionStore()) {
+      const address = addDemoAddress(user.id, {
+        label: body.data.label,
+        line1: body.data.line1,
+        line2: body.data.line2,
+        city: body.data.city,
+        postal_code: body.data.postal_code,
+        country: body.data.country,
+        is_default: body.data.is_default ?? false,
+      });
+      return NextResponse.json({ address });
     }
     if (body.data.is_default) {
       await sql("update addresses set is_default = false where user_id = $1", [user.id]);

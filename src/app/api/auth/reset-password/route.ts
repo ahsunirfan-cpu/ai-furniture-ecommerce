@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
+import { isClientDemo } from "@/lib/config";
 import { sqlOne, sql } from "@/lib/db";
 
 const schema = z.object({
@@ -10,6 +11,10 @@ const schema = z.object({
 });
 
 export async function POST(request: Request) {
+  if (isClientDemo()) {
+    return NextResponse.json({ error: "Password reset is disabled in the client demo." }, { status: 403 });
+  }
+
   const body = schema.safeParse(await request.json());
   if (!body.success) {
     return NextResponse.json({ error: "Invalid reset request." }, { status: 400 });

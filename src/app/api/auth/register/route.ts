@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { z } from "zod";
 import { sqlOne } from "@/lib/db";
+import { useSessionStore } from "@/lib/config";
+import { registerDemoUser } from "@/lib/demo/users";
 import { getSession } from "@/lib/auth/session";
 
 const schema = z.object({
@@ -17,7 +19,29 @@ export async function POST(request: Request) {
   }
 
   const { email, password, name } = body.data;
-  const existing = await sqlOne("select id from users where email = $1", [email.toLowerCase()]);
+  const normalized = email.toLowerCase();
+
+  if (useSessionStore()) {
+    try {
+      const user = await registerDemoUser(normalized, password, name);
+      const session = await getSession();
+      session.user = {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        role: user.role,
+      };
+      await session.save();
+      return NextResponse.json({ ok: true });
+    } catch (e) {
+      if ((e as Error).message === "EMAIL_EXISTS") {
+        return NextResponse.json({ error: "An account with this email already exists." }, { status: 409 });
+      }
+      throw e;
+    }
+  }
+
+  const existing = await sqlOne("select id from users where email = $1", [normalized]);
   if (existing) {
     return NextResponse.json({ error: "An account with this email already exists." }, { status: 409 });
   }
@@ -26,7 +50,7 @@ export async function POST(request: Request) {
   const user = await sqlOne<{ id: string; email: string; name: string; role: string }>(
     `insert into users (email, password_hash, name) values ($1, $2, $3)
      returning id, email, name, role`,
-    [email.toLowerCase(), password_hash, name],
+    [normalized, password_hash, name],
   );
 
   const session = await getSession();

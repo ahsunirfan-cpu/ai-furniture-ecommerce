@@ -6,7 +6,7 @@ import { requireUser } from "@/lib/auth/session";
 export async function GET() {
   try {
     const user = await requireUser();
-    const lines = await getCartLines(user.id);
+    const lines = await getCartLines(user.id, user);
     return NextResponse.json({ lines });
   } catch {
     return NextResponse.json({ error: "Sign in required." }, { status: 401 });
@@ -25,8 +25,8 @@ export async function POST(request: Request) {
     if (!body.success) {
       return NextResponse.json({ error: "Invalid request." }, { status: 400 });
     }
-    await addToCart(user.id, body.data.productId, body.data.quantity ?? 1);
-    const lines = await getCartLines(user.id);
+    await addToCart(user.id, body.data.productId, body.data.quantity ?? 1, user);
+    const lines = await getCartLines(user.id, user);
     return NextResponse.json({ lines });
   } catch (e) {
     const message = (e as Error).message;
@@ -49,8 +49,8 @@ export async function PATCH(request: Request) {
     if (!body.success) {
       return NextResponse.json({ error: "Invalid request." }, { status: 400 });
     }
-    await updateCartQuantity(user.id, body.data.itemId, body.data.quantity);
-    const lines = await getCartLines(user.id);
+    await updateCartQuantity(user.id, body.data.itemId, body.data.quantity, user);
+    const lines = await getCartLines(user.id, user);
     return NextResponse.json({ lines });
   } catch {
     return NextResponse.json({ error: "Sign in required." }, { status: 401 });

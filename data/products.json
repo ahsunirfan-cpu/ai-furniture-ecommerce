@@ -1,0 +1,724 @@
+[
+  {
+    "id": "70f9135a894d7fd7e6fbfd11f2520396bf3d4715ab69e92c83d8985baec325f7",
+    "name": "Oslo Platform Bed",
+    "slug": "oslo-platform-bed",
+    "description": "Low-profile oak platform bed with integrated nightstands.",
+    "price_cents": 89900,
+    "category": "beds",
+    "colors": [
+      "oak",
+      "walnut"
+    ],
+    "dimensions": {
+      "widthCm": 167,
+      "depthCm": 210,
+      "heightCm": 45
+    },
+    "material": "Solid oak",
+    "style_tags": [
+      "modern",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=bed1"
+    ],
+    "stock": 12,
+    "popularity": 95,
+    "created_at": "2026-11-25T13:22:35.144Z"
+  },
+  {
+    "id": "b891bde4cc9c12338b0b6393840217504a4b99c9ea0b87d1567bc2f934766c99",
+    "name": "Linen Upholstered Bed",
+    "slug": "linen-upholstered-bed",
+    "description": "Soft linen headboard with tapered legs.",
+    "price_cents": 124900,
+    "category": "beds",
+    "colors": [
+      "ivory",
+      "charcoal"
+    ],
+    "dimensions": {
+      "widthCm": 172,
+      "depthCm": 215,
+      "heightCm": 110
+    },
+    "material": "Linen & birch",
+    "style_tags": [
+      "classic",
+      "modern"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=bed2"
+    ],
+    "stock": 8,
+    "popularity": 88,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "3dfcd92f2856d2538448e93a3d7aae5cfb4330242974e19fb7eb6c3f1f69a601",
+    "name": "Compact Guest Bed Frame",
+    "slug": "compact-guest-bed",
+    "description": "Space-saving frame ideal for smaller bedrooms.",
+    "price_cents": 45900,
+    "category": "beds",
+    "colors": [
+      "white",
+      "grey"
+    ],
+    "dimensions": {
+      "widthCm": 145,
+      "depthCm": 198,
+      "heightCm": 40
+    },
+    "material": "Engineered wood",
+    "style_tags": [
+      "minimalist",
+      "scandinavian"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=bed3"
+    ],
+    "stock": 20,
+    "popularity": 72,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "3f93ea00d0ad3009d64870bf0f4f889ccd0068ecb6a0c845701508011c079b93",
+    "name": "Harbor Modular Sofa",
+    "slug": "harbor-modular-sofa",
+    "description": "Three-seat modular sofa with deep cushions.",
+    "price_cents": 189900,
+    "category": "sofas",
+    "colors": [
+      "stone",
+      "navy"
+    ],
+    "dimensions": {
+      "widthCm": 240,
+      "depthCm": 98,
+      "heightCm": 82
+    },
+    "material": "Performance fabric",
+    "style_tags": [
+      "modern",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=sofa1"
+    ],
+    "stock": 6,
+    "popularity": 98,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "18e5429067fc2da95ed1b085fcf3c875cefaac8493d790c4bd0e2fa6e5dcde47",
+    "name": "Velvet Curve Sofa",
+    "slug": "velvet-curve-sofa",
+    "description": "Rounded arms and rich velvet upholstery.",
+    "price_cents": 149900,
+    "category": "sofas",
+    "colors": [
+      "emerald",
+      "blush"
+    ],
+    "dimensions": {
+      "widthCm": 210,
+      "depthCm": 95,
+      "heightCm": 78
+    },
+    "material": "Velvet",
+    "style_tags": [
+      "classic",
+      "art_deco"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=sofa2"
+    ],
+    "stock": 5,
+    "popularity": 85,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "b6aa8b5aae68280af93c3a93f3d0d2147d9838487d39a70e53b116cc7ad264c2",
+    "name": "Urban Apartment Loveseat",
+    "slug": "urban-loveseat",
+    "description": "Compact loveseat for city living rooms.",
+    "price_cents": 79900,
+    "category": "sofas",
+    "colors": [
+      "charcoal",
+      "camel"
+    ],
+    "dimensions": {
+      "widthCm": 160,
+      "depthCm": 88,
+      "heightCm": 76
+    },
+    "material": "Bouclé",
+    "style_tags": [
+      "modern",
+      "industrial"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=sofa3"
+    ],
+    "stock": 14,
+    "popularity": 80,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "1d88aed7be9a641d22fa95553d89ce2c4a418421eb1ca65582107fc99bcc6cea",
+    "name": "Atlas Dining Armchair",
+    "slug": "atlas-dining-armchair",
+    "description": "Contoured dining chair with oak legs.",
+    "price_cents": 24900,
+    "category": "chairs",
+    "colors": [
+      "natural",
+      "black"
+    ],
+    "dimensions": {
+      "widthCm": 52,
+      "depthCm": 55,
+      "heightCm": 82
+    },
+    "material": "Oak & cane",
+    "style_tags": [
+      "scandinavian",
+      "modern"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=chair1"
+    ],
+    "stock": 30,
+    "popularity": 90,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "ce08f04268c3a756384bd22a8c33914fb2288bf7cfa703d89577a44f31930e89",
+    "name": "Ergo Work Chair",
+    "slug": "ergo-work-chair",
+    "description": "Adjustable lumbar support office chair.",
+    "price_cents": 34900,
+    "category": "chairs",
+    "colors": [
+      "black",
+      "grey"
+    ],
+    "dimensions": {
+      "widthCm": 65,
+      "depthCm": 65,
+      "heightCm": 110
+    },
+    "material": "Mesh & aluminum",
+    "style_tags": [
+      "modern",
+      "office"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=chair2"
+    ],
+    "stock": 25,
+    "popularity": 92,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "bba67095957e3b014714c7e8ed19b4116ee1e5aba5eda8e1ea3d97943eee971e",
+    "name": "Club Velvet Accent Chair",
+    "slug": "club-velvet-chair",
+    "description": "Statement accent chair for living spaces.",
+    "price_cents": 59900,
+    "category": "chairs",
+    "colors": [
+      "forest",
+      "mustard"
+    ],
+    "dimensions": {
+      "widthCm": 75,
+      "depthCm": 78,
+      "heightCm": 85
+    },
+    "material": "Velvet",
+    "style_tags": [
+      "classic",
+      "mid_century"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=chair3"
+    ],
+    "stock": 11,
+    "popularity": 77,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "83a123e36a5a771cd12346afdd3462e6544e07b1128050e00a8a46bf1d96f139",
+    "name": "Nordic Oak Dining Table",
+    "slug": "nordic-oak-dining-table",
+    "description": "Seats six comfortably with rounded edges.",
+    "price_cents": 94900,
+    "category": "tables",
+    "colors": [
+      "natural"
+    ],
+    "dimensions": {
+      "widthCm": 180,
+      "depthCm": 90,
+      "heightCm": 75
+    },
+    "material": "Solid oak",
+    "style_tags": [
+      "scandinavian",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=table1"
+    ],
+    "stock": 9,
+    "popularity": 86,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "fc453a4ccd2d23adb6e761fe6c94d442b2df5ca388697338ff9e3c9cc105342e",
+    "name": "Marble Bistro Table",
+    "slug": "marble-bistro-table",
+    "description": "Marble top with brass pedestal base.",
+    "price_cents": 69900,
+    "category": "tables",
+    "colors": [
+      "white",
+      "brass"
+    ],
+    "dimensions": {
+      "widthCm": 90,
+      "depthCm": 90,
+      "heightCm": 76
+    },
+    "material": "Marble & brass",
+    "style_tags": [
+      "modern",
+      "classic"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=table2"
+    ],
+    "stock": 7,
+    "popularity": 82,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "d86c8398e832054db7575408b83c503080bcef18409a16a977c0f30a4fad461b",
+    "name": "Slate Coffee Table",
+    "slug": "slate-coffee-table",
+    "description": "Low profile table with slate inlay.",
+    "price_cents": 42900,
+    "category": "tables",
+    "colors": [
+      "slate",
+      "black"
+    ],
+    "dimensions": {
+      "widthCm": 120,
+      "depthCm": 60,
+      "heightCm": 40
+    },
+    "material": "Wood & slate",
+    "style_tags": [
+      "industrial",
+      "modern"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=table3"
+    ],
+    "stock": 16,
+    "popularity": 74,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "d83994ec17b997aeb60284a79ee649fda16c2c8113d63440bc200b1da52c2b71",
+    "name": "Capri Wardrobe",
+    "slug": "capri-wardrobe",
+    "description": "Two-door wardrobe with internal shelving.",
+    "price_cents": 119900,
+    "category": "wardrobes",
+    "colors": [
+      "white",
+      "oak"
+    ],
+    "dimensions": {
+      "widthCm": 120,
+      "depthCm": 58,
+      "heightCm": 200
+    },
+    "material": "MDF & oak veneer",
+    "style_tags": [
+      "modern",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=ward1"
+    ],
+    "stock": 6,
+    "popularity": 70,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "4f66672a673dbc798aff2d62a561a841768c643f0e64bf89cea38fb62e736ec7",
+    "name": "Sliding Panel Wardrobe",
+    "slug": "sliding-panel-wardrobe",
+    "description": "Sliding doors for tight bedroom layouts.",
+    "price_cents": 159900,
+    "category": "wardrobes",
+    "colors": [
+      "graphite",
+      "oak"
+    ],
+    "dimensions": {
+      "widthCm": 200,
+      "depthCm": 60,
+      "heightCm": 220
+    },
+    "material": "Laminate",
+    "style_tags": [
+      "modern"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=ward2"
+    ],
+    "stock": 4,
+    "popularity": 68,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "384c06191daece8d7d5a4aeb0f90aac81934e068dae9a7a7c6455460402830d6",
+    "name": "Open Ladder Wardrobe",
+    "slug": "open-ladder-wardrobe",
+    "description": "Open hanging rail with storage shelf.",
+    "price_cents": 54900,
+    "category": "wardrobes",
+    "colors": [
+      "black"
+    ],
+    "dimensions": {
+      "widthCm": 100,
+      "depthCm": 45,
+      "heightCm": 185
+    },
+    "material": "Steel & wood",
+    "style_tags": [
+      "industrial",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=ward3"
+    ],
+    "stock": 10,
+    "popularity": 65,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "a22d73c658609f150d2063a27a25cbed0b7e5f4b52177900c2e79e0405b73798",
+    "name": "Pantry Tall Cabinet",
+    "slug": "pantry-tall-cabinet",
+    "description": "Kitchen pantry with adjustable shelves.",
+    "price_cents": 79900,
+    "category": "cabinets",
+    "colors": [
+      "sage",
+      "white"
+    ],
+    "dimensions": {
+      "widthCm": 80,
+      "depthCm": 40,
+      "heightCm": 190
+    },
+    "material": "Painted wood",
+    "style_tags": [
+      "classic",
+      "farmhouse"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=cab1"
+    ],
+    "stock": 8,
+    "popularity": 71,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "128909f2693a77d323197fee1bb4a0d0b3c63d9d5afac560c4a61db7cfeb5456",
+    "name": "Media Console Cabinet",
+    "slug": "media-console-cabinet",
+    "description": "Cable management and soft-close doors.",
+    "price_cents": 64900,
+    "category": "cabinets",
+    "colors": [
+      "walnut"
+    ],
+    "dimensions": {
+      "widthCm": 180,
+      "depthCm": 42,
+      "heightCm": 55
+    },
+    "material": "Walnut veneer",
+    "style_tags": [
+      "mid_century",
+      "modern"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=cab2"
+    ],
+    "stock": 12,
+    "popularity": 83,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "eef083db90ec81a9b47bbc7afa67e6b9eee2e700d3a5cd599922fe281154d960",
+    "name": "Floating Wall Cabinet",
+    "slug": "floating-wall-cabinet",
+    "description": "Wall-mounted storage for bathrooms or offices.",
+    "price_cents": 29900,
+    "category": "cabinets",
+    "colors": [
+      "white",
+      "oak"
+    ],
+    "dimensions": {
+      "widthCm": 90,
+      "depthCm": 30,
+      "heightCm": 70
+    },
+    "material": "Oak",
+    "style_tags": [
+      "minimalist",
+      "scandinavian"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=cab3"
+    ],
+    "stock": 18,
+    "popularity": 66,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "5cb085f8a2609a9c7689b1d84c208d30d37dc2b34300b4fc82e6592f07835cd0",
+    "name": "Harbor Six-Piece Dining Set",
+    "slug": "harbor-dining-set",
+    "description": "Table plus six matching upholstered chairs.",
+    "price_cents": 219900,
+    "category": "dining_sets",
+    "colors": [
+      "oak",
+      "stone"
+    ],
+    "dimensions": {
+      "widthCm": 200,
+      "depthCm": 100,
+      "heightCm": 76
+    },
+    "material": "Oak & fabric",
+    "style_tags": [
+      "modern",
+      "scandinavian"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=din1"
+    ],
+    "stock": 3,
+    "popularity": 91,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "d0a9d2d5c1d45b2dca30c55c4ce529fa7e610615dccf74897720c5df5dfc2e5c",
+    "name": "Bistro Four-Piece Set",
+    "slug": "bistro-four-piece-set",
+    "description": "Round table with four compact chairs.",
+    "price_cents": 89900,
+    "category": "dining_sets",
+    "colors": [
+      "white",
+      "natural"
+    ],
+    "dimensions": {
+      "widthCm": 110,
+      "depthCm": 110,
+      "heightCm": 75
+    },
+    "material": "Rubberwood",
+    "style_tags": [
+      "classic",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=din2"
+    ],
+    "stock": 7,
+    "popularity": 79,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "9d92c138dfb2f5c062ea61679ec940f22259f083c3437631ca02b79cb3b121f5",
+    "name": "Executive Desk",
+    "slug": "executive-desk",
+    "description": "Wide writing surface with cable port.",
+    "price_cents": 74900,
+    "category": "office",
+    "colors": [
+      "walnut",
+      "black"
+    ],
+    "dimensions": {
+      "widthCm": 140,
+      "depthCm": 70,
+      "heightCm": 75
+    },
+    "material": "Walnut laminate",
+    "style_tags": [
+      "modern",
+      "office"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=off1"
+    ],
+    "stock": 11,
+    "popularity": 87,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "091b48db068e6c20068864026fb0f64200f686bcba625a254a64601cf163c22d",
+    "name": "Height-Adjustable Desk",
+    "slug": "height-adjustable-desk",
+    "description": "Electric sit-stand frame with oak top.",
+    "price_cents": 99900,
+    "category": "office",
+    "colors": [
+      "oak",
+      "white"
+    ],
+    "dimensions": {
+      "widthCm": 160,
+      "depthCm": 80,
+      "heightCm": 125
+    },
+    "material": "Oak & steel",
+    "style_tags": [
+      "modern",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=off2"
+    ],
+    "stock": 9,
+    "popularity": 94,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "3d667206d218b3524882f33c519d75ffe38361623e615d21be3a0479eb0305ac",
+    "name": "Bookcase Tower",
+    "slug": "bookcase-tower",
+    "description": "Five-shelf tower for home office storage.",
+    "price_cents": 39900,
+    "category": "office",
+    "colors": [
+      "white",
+      "grey"
+    ],
+    "dimensions": {
+      "widthCm": 60,
+      "depthCm": 35,
+      "heightCm": 180
+    },
+    "material": "Engineered wood",
+    "style_tags": [
+      "scandinavian"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=off3"
+    ],
+    "stock": 15,
+    "popularity": 73,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "db2c8cf87278da5ddae4490b741de8eaacf23a1d5db7d440ea7f0e1a06978cae",
+    "name": "Woven Floor Basket Set",
+    "slug": "woven-floor-basket-set",
+    "description": "Set of three natural fibre storage baskets.",
+    "price_cents": 6900,
+    "category": "decor",
+    "colors": [
+      "natural"
+    ],
+    "dimensions": {
+      "widthCm": 40,
+      "depthCm": 40,
+      "heightCm": 35
+    },
+    "material": "Seagrass",
+    "style_tags": [
+      "bohemian",
+      "minimalist"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=dec1"
+    ],
+    "stock": 40,
+    "popularity": 60,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "33f6016118186cc66a23e963368b8e2dca3b24c2bb772eb9fd0fbf40eb26e5cd",
+    "name": "Arc Floor Lamp",
+    "slug": "arc-floor-lamp",
+    "description": "Brushed steel arc lamp with linen shade.",
+    "price_cents": 22900,
+    "category": "decor",
+    "colors": [
+      "brass",
+      "linen"
+    ],
+    "dimensions": {
+      "widthCm": 40,
+      "depthCm": 150,
+      "heightCm": 190
+    },
+    "material": "Steel & linen",
+    "style_tags": [
+      "modern",
+      "mid_century"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=dec2"
+    ],
+    "stock": 22,
+    "popularity": 81,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  },
+  {
+    "id": "687e389f06725d3e2e9047ba434ae38db67ff2739abe5111cc185bf06e148b5d",
+    "name": "Hand-Tufted Wool Rug",
+    "slug": "hand-tufted-wool-rug",
+    "description": "Soft geometric pattern rug for living rooms.",
+    "price_cents": 34900,
+    "category": "decor",
+    "colors": [
+      "grey",
+      "cream"
+    ],
+    "dimensions": {
+      "widthCm": 200,
+      "depthCm": 300,
+      "heightCm": 2
+    },
+    "material": "Wool",
+    "style_tags": [
+      "modern",
+      "scandinavian"
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sig=dec3"
+    ],
+    "stock": 13,
+    "popularity": 76,
+    "created_at": "2026-11-25T13:22:35.145Z"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "00000000-0000-4000-8000-000000000001",
+    "email": "admin@roomcraft.local",
+    "name": "Demo Admin",
+    "role": "ADMIN",
+    "password_hash": "$2b$10$XxHXVSpmlgwwh/D66saIAeMOIWOtKNedypdbepVbMvt2oqkonuFSe"
+  },
+  {
+    "id": "00000000-0000-4000-8000-000000000002",
+    "email": "client@demo.com",
+    "name": "Client Demo",
+    "role": "USER",
+    "password_hash": "$2b$10$JVLv3Jm0u74oNkf.CTHrqetPXNqIhw5G6vHUkI0S3JvXC/9pgm76G"
+  }
+]
