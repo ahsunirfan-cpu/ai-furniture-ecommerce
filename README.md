@@ -15,7 +15,7 @@ Online furniture store where customers upload a room photo, receive **catalogue-
 
 ## Client demo (Vercel)
 
-Set `CLIENT_DEMO=true` and `AI_MOCK=true`, plus a generated `AUTH_SECRET` (see [docs/CLIENT_DEMO_AND_COSTS.md](docs/CLIENT_DEMO_AND_COSTS.md)). Catalogue lives in [`data/products.json`](data/products.json); cart and orders stay in the session (no Postgres required).
+Step-by-step: **[docs/VERCEL_SETUP.md](docs/VERCEL_SETUP.md)**. Set `CLIENT_DEMO=true`, `AI_MOCK=true`, and `AUTH_SECRET` (`openssl rand -base64 32`). Catalogue lives in [`data/products.json`](data/products.json); cart and orders stay in the session (no Postgres required).
 
 Demo shoppers: `client@demo.com` / `demo123` · Admin: `admin@roomcraft.local` / `admin123`
 
