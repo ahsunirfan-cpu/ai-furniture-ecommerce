@@ -1,7 +1,14 @@
 import "server-only";
 
-import { randomBytes } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import { isClientDemo, isProductionRuntime } from "@/lib/config";
+
+/** Stable demo sessions per Vercel project when AUTH_SECRET is not set (public client demo only). */
+function vercelDemoFallbackSecret(): string | undefined {
+  const projectId = process.env.VERCEL_PROJECT_ID?.trim();
+  if (!projectId) return undefined;
+  return createHash("sha256").update(`roomcraft-client-demo:${projectId}`).digest("base64");
+}
 
 let devEphemeralSecret: string | undefined;
 
@@ -15,6 +22,8 @@ export function getSessionSecret(): string {
   }
 
   if (isProductionRuntime() && isClientDemo()) {
+    const fallback = vercelDemoFallbackSecret();
+    if (fallback) return fallback;
     throw new Error(
       "AUTH_SECRET must be set for the client demo (generate with: openssl rand -base64 32)",
     );
