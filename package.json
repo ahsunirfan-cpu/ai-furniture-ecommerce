@@ -6,6 +6,7 @@
     "dev": "next dev -p 3456",
     "build": "next build && node scripts/migrate.mjs",
     "export:demo": "npx tsx scripts/export-demo-catalog.ts",
+    "push:github": "node scripts/push-github-via-api.mjs",
     "start": "next start",
     "lint": "eslint"
   },

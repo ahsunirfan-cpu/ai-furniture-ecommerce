@@ -1,6 +1,12 @@
 # Connect RoomCraft to Vercel (client demo)
 
-Your Vercel team **Ahsan's projects** (`ahsan-s-projects255`) currently has **no Cursor Origin workspace linked**, so automated project creation returns **403**. Complete the steps below once, then every push can auto-deploy.
+## Important: use **Cursor (Origin)**, not an empty GitHub repo
+
+The GitHub repository `ahsunirfan-cpu/ai-furniture-ecommerce` was created **without any code**, so Vercel shows:
+
+> *The provided GitHub repository does not contain the requested branch or commit reference.*
+
+**All source code lives in Cursor Origin** (already pushed). On [vercel.com/new](https://vercel.com/new), choose **Cursor** or **Origin**, not GitHub, and import **`ahsan-irfan/ai-furniture-ecommerce`** (or the matching Origin repo name shown in your account). Only use GitHub after you have pushed `main` (see [Sync to GitHub](#sync-to-github-optional) below).
 
 ## 1. Link Cursor Origin to Vercel
 
@@ -9,7 +15,26 @@ Your Vercel team **Ahsan's projects** (`ahsan-s-projects255`) currently has **no
 3. Connect **Cursor Origin** / your Cursor account and authorize access to `ahsan-irfan/ai-furniture-ecommerce`.
 4. Confirm `originConnections` is no longer empty (or import the repo in **Add New Project**).
 
-If Origin is not listed, mirror the repo to GitHub and import from GitHub instead (same env vars below).
+If Origin is not listed, connect it under **Integrations** first. Do not import the empty GitHub repo until you have synced code (below).
+
+## Sync to GitHub (optional)
+
+If you must deploy from GitHub, push once from a machine that has Origin access:
+
+```bash
+origin auth login
+origin repo clone ahsan-irfan/ai-furniture-ecommerce
+cd ai-furniture-ecommerce
+git remote add github https://github.com/ahsunirfan-cpu/ai-furniture-ecommerce.git
+git push -u github main
+```
+
+Or, from the clone, with a GitHub fine-grained token (`contents: read and write`):
+
+```bash
+export GH_TOKEN=ghp_your_token_here
+npm run push:github
+```
 
 ## 2. Import the project
 
